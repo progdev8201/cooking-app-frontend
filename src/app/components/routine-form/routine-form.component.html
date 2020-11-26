@@ -1,0 +1,27 @@
+<form>
+    <!--HEADER-->
+    <h1 mat-dialog-title class="text-center">{{title}}</h1>
+    <mat-divider></mat-divider>
+    
+    <!--BODY-->
+    <div class="text-center mx-auto col-lg-12 mt-2">
+      <!--name-->
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Routine name</mat-label>
+          <input matInput placeholder="Ex. Gym diet" [formControl]="routineForm" autocomplete="off">
+          <mat-hint>name</mat-hint>
+          <mat-error>name cannot be blank</mat-error>
+        </mat-form-field>
+      </p>
+
+    </div>
+
+    <!--FOOTER-->
+    <mat-divider></mat-divider>
+    <div class="d-flex justify-content-between mt-2">
+        <button mat-raised-button class="btn-dark text-white" (click)="onNoClick()">Cancel</button>
+        <button  mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()" *ngIf="!data">Create</button>
+        <button  mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()" *ngIf="data">Update</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<div class="row pt-1 mat-elevation-z10 rounded mb-5 mt-5 bg-dark">
+    <h1 class="text-center w-75 mx-auto border-white text-white border-bottom">{{title}}</h1>
+
+    <div [id]="carouselId" class="carousel slide mx-auto w-100" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li *ngFor="let amount of articles let i = index" [data-target]="navId"
+                [data-slide-to]="i" [ngClass]="{'active' : i == 0,'': i != 0}"></li>
+        </ol>
+        <div class="carousel-inner rounded bg-white w-100">
+            <ng-container *ngFor="let carouselArticle of articles; let i = index">
+                <div  [ngClass]="getClass(i)" style="min-height: 570px;">
+                    <div class="container m-0 p-0">
+                        <div class="row w-100 text-center m-0 p-0 pl-5 pr-5 pb-3 pt-3" style="min-height: 640px;">
+
+                            <div class="col-12 col-md-4 col-lg-4" *ngFor="let routineArticle of carouselArticle.articles">
+                                <div class="bg-white w-75 pt-3 pb-2 mb-5 mx-auto mat-elevation-z4 rounded">
+                                    <img [src]="getImage(routineArticle.article.image)" class="img-fluid rounded w-75 mb-2 img-thumbnail" style="max-height: 120px;min-height: 100px;"   alt="article image">
+                                    <p class="font-weight-bold">{{routineArticle.article.name}}</p>
+                                    <p>Qty: {{routineArticle.quantity}}</p>
+                                    <button mat-raised-button class="w-75 text-black " style="background-color: #d7d7d7;" (click)="onButtonClicked(routineArticle.id)">{{buttonMessage}}</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
+        <a class="carousel-control-prev" [href]="navId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only  text-dark">Previous</span>
+        </a>
+        <a class="carousel-control-next" [href]="navId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <button mat-raised-button class="btn-block bg-dark text-white" *ngIf="type == 'missingArticles'" routerLink="../shopping">Go to Shop</button>
+    <button mat-raised-button class="btn-block bg-dark text-white" *ngIf="type == 'availableArticles'" routerLink="../article">Go to Articles</button>
+</div>

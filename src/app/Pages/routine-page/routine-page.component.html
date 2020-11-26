@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row mb-1">
+        <h1 class="text-center mx-auto w-75 border-bottom border-secondary">MY ROUTINES</h1>
+    </div>
+    <div class="row">
+        <div class="col-11 mx-auto overflow-auto pb-2" style="max-height: 700px;">
+            <mat-accordion *ngIf="routines">
+                <ng-container *ngFor="let routine of routines">
+
+                    <mat-expansion-panel (opened)="routine.panelOpenState = true" (closed)="routine.panelOpenState = false">
+                        <!--HEADER-->
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Routine {{routine.name}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        
+                        <!--article routine table-->
+                        <ng-container>
+                            <app-routine-articles-table *ngIf="routine.panelOpenState" (refreshRoutines)="initRoutines()" [routine] = "routine"  [routineArticles] = "routine.routineArticles"></app-routine-articles-table>
+                        </ng-container>
+
+
+                        <mat-action-row class="d-flex justify-content-between">
+                            <button mat-raised-button color="warn" (click)="onDeleteRoutine(routine.id)">Delete</button>
+                            <button mat-raised-button class="bg-dark text-white" (click)="openDialog(routine)">Edit</button>
+                          </mat-action-row>
+                    </mat-expansion-panel>
+
+                </ng-container>
+            </mat-accordion>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <button mat-raised-button class="btn-dark text-white w-50" (click)="openDialog(null)">Create Routine</button>
+        </div>
+    </div>
+</div>

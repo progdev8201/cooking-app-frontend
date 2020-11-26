@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  ::ng-deep .mat-snack-bar-container{
+    color: black !important;
+    background-color: white !important;
+    border-color:white !important;
+  }
+  ::ng-deep .mat-simple-snackbar-action {
+    color: black;
+  }

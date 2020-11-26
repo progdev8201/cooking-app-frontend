@@ -1,0 +1,53 @@
+<div class="container mt-4 mb-5">
+    <h1 class="text-center w-75 mx-auto border-dark border-bottom">HOME PAGE</h1>
+
+    <!--RECIPE CAROUSEL-->
+    
+    <!-- available recipes -->
+    <app-recipe-carousel
+    *ngIf="availableRecipes"
+    [recipes]="availableRecipes"
+    [fridge]="fridge"
+    title="AVAILABLE RECIPES"
+    carouselId="carouselExampleCaptions"
+    buttonMessage="Remove"
+    type="availableRecipes"
+    (refreshFridge)="initFridge($event)"></app-recipe-carousel>
+
+    <!-- cookable recipes -->
+    <app-recipe-carousel
+    *ngIf="cookableRecipes"
+    [recipes]="cookableRecipes"
+    [fridge]="fridge"
+    title="COOKABLE RECIPES"
+    carouselId="carouselExampleCaptions2"
+    buttonMessage="Add to Cooking"
+    type="cookableRecipes"
+    (refreshFridge)="initFridge($event)"></app-recipe-carousel>
+
+    <!--ARTICLES CAROUSEL-->
+
+    <!-- available articles -->
+    <app-article-carousel
+     *ngIf="availableArticles"
+      [articles]="availableArticles"
+      [fridge]="fridge"
+      title="AVAILABLE ARTICLES"
+      carouselId="carouselExampleCaptions3"
+      buttonMessage="Add to Missing"
+      type="availableArticles"
+      (refreshFridge)="initFridge($event)" ></app-article-carousel>
+
+      <!-- missing articles -->
+      <app-article-carousel
+      *ngIf="missingArticles"
+       [articles]="missingArticles"
+       [fridge]="fridge"
+       title="MISSING ARTICLES"
+       carouselId="carouselExampleCaptions4"
+       buttonMessage="Add to Shop"
+       type="missingArticles"
+       (refreshFridge)="initFridge($event)" ></app-article-carousel>
+
+ 
+</div>
