@@ -1,0 +1,256 @@
+Application gestion alimentation
+26 Octobre
+•	Ce que j’ai fait
+o	Je suis allé faire des recherches pour apprendre comment host une base de données MongoDB sur Amazone Elasticbeanstalk (PaaS).
+o	J’ai fait des recherches sur le cloud pour savoir la différence entre SaaS, IaaS, et PaaS.
+o	J’ai refactor un peu de code de back end.
+
+•	Ce que j’ai appris
+o	J’ai appris la différence entre les trois types de service cloud et je m’y connais mieux.
+o	Voici ou j’ai appris ces informations.
+	https://www.youtube.com/watch?v=36zducUX16w
+o	J’ai aussi appris qu’elle était les meilleures pratiques pour instaurer une bd MongoDB sur une instance aws. Au début je lisais sur stack overflow que ce n’était pas une bonne pratique d’host une bd mongo sur elastic beanstalk (aws PaaS) puisqu’il sera difficile d’assurer l’intégrité des objets.
+o	Voici ou j’ai appris cela :
+	https://stackoverflow.com/questions/36851887/recommended-way-to-install-mongodb-on-elastic-beanstalk
+	https://stackoverflow.com/questions/33837610/elastic-beanstalk-deployment-with-mongodb
+
+•	Github
+o	Voici le commit étant relié à mon refactor dans le backend.
+	https://github.com/progdev8201/whatarewecooking-app/commit/1ec6e3db1d7146f63717e46c876b0841227cba16
+
+•	Trello
+o	Je suis présentement en train de faire la tâche: ‘’ Apprendre à host une base de données mongo’’.
+o	Je compte terminer cela d’ici la prochaine séance.
+o	Une fois terminé je vais enchainer avec la tâche : ‘’ Apprendre à host une application spring boot aws PaaS’’
+ 
+27 Octobre
+•	Ce que j’ai fait
+o	J’ai complété la tâche: ‘’ Apprendre à host une base de données mongo aws PaaS’’.
+o	J’ai créé un cluster MongoDB avec MongoDB atlas, qui est un cloud hoster sur AWS.
+o	Je me suis ensuite connecté sur mon cluster avec le MongoDB Compass.
+o	Ensuite de ça je me suis connecté dessus avec ma rest api spring.
+
+•	Ce que j’ai appris:
+o	Voici le site m’ayant fait comprendre comment hoster un cluster MongoDB :
+	https://www.mongodb.com/cloud/atlas/aws-mongodb?utm_medium=referral&utm_source=aws_quickstarts
+o	Voici la doc amazon :
+	https://docs.aws.amazon.com/quickstart/latest/mongodb/welcome.html
+
+•	Github
+o	Mongo n’est pas sur GitHub.
+•	Trello
+o	J’ai terminé avec la tâche : ‘’Apprendre à host une base de données mongo aws PaaS’’.
+o	Je vais enchainer avec la tâche : ‘’ Apprendre à host une application spring boot aws PaaS’’.
+ 
+28 Octobre
+•	Ce que j’ai fait
+o	J’ai complété la tâche ‘’ Apprendre à host une application spring boot sur aws PaaS’’.
+o	Je peux désormais accéder à mon serveur à partir de n’importe quel poste puisqu’il est en ligne (cloud).
+o	J’avais affronté un bug : mon serveur ne pouvait pas se connecter sur MongoDB puisque le poste avait changé, comme solution j’ai rajouté l’adresse IP de la machine virtuelle qui host mon serveur spring dans mes configuration de MongoDB Atlas.
+
+•	Ce que j’ai appris
+o	J’ai appris ce qu’est aws elasticbeanstalk :
+	https://www.youtube.com/watch?v=jnMUp2c9AzA
+
+o	J’ai appris comment set up une instance amazone :
+	https://www.youtube.com/watch?v=6SadWaJrtnY
+	https://www.youtube.com/watch?v=KEH0-rHHNxM
+
+o	J’ai appris comment set up l’accès au port sur aws (security groups) :
+	https://www.youtube.com/watch?v=-9j7BvAyb2w
+
+•	Github
+o	Il n’y a pas eu de code à rajouter.
+•	Trello
+o	J’ai terminé avec la tâche: ‘’ Apprendre à host une application spring boot sur aws PAAS’’
+o	Je vais enchainer avec la tâche : ‘’ Apprendre à host une app front end node js sur aws PAAS’’
+ 
+02 novembre :
+•	Ce que j’ai fait
+o	J’ai complété la tâche : ‘’ Apprendre à host une app front end node js sur aws PAAS’’.
+o	J’ai ajouté l’url de mon front end dans les cors configuration de mon backend.
+o	J’ai exposé l’adresse IP de mon instance backend pour pouvoir y accéder avec mon app front end.
+
+•	Ce que j’ai appris
+o	J’ai appris comment host une application Node js grâce à aws s3 (PaaS).
+o	J’ai appris comment host une application full stack avec en PaaS avec aws. Je suis fière de moi, le temps passe vite. 
+o	Voici les liens m’ayant appris comment utiliser s3
+	https://www.youtube.com/watch?v=TLwMumqyGEQ
+	https://www.youtube.com/watch?v=RUKcrphvO8I&t=10s
+
+•	Github
+o	J’ai rajouté le cors policy pour mon front end dans le backend
+	https://github.com/progdev8201/whatarewecooking-app/commit/5773e172bc5a9391c11bff6730cd144c78d803fb
+
+•	Trello
+o	J’ai terminé la tâche : ‘’ Apprendre à host une app front end node js sur aws PaaS’’.
+o	Je vais maintenant enchaîner avec la tâche : ‘’Apprendre docker’’.
+ 
+09 novembre :
+•	Ce que j’ai fait :
+o	J’ai complété les tâches ‘’learn docker’’ et ‘’ Install docker on windows’’.
+o	Je me suis créer une feuille de note docker.
+•	Ce que j’ai appris :
+o	J’ai appris ce qu’est la technologie docker
+	Docker est un logiciel utilisant la technologie de conteneur pour empaqueter une application et ses dépendances pour ensuite pouvoir déployer cette application.
+o	Voici le lien vers le cours de docker que j’ai suivi :
+	https://www.youtube.com/watch?v=fqMOX6JJhGo&t=5535s
+o	J’ai aussi appris comment download docker sur une machine Windows :
+	https://www.youtube.com/watch?v=_9AWYlt86B8
+
+•	GitHub :
+o	Rien
+•	Trello :
+o	J’ai terminé les tâches : ‘’learn docker’’ et ‘’ Install docker on Windows’’
+o	Je vais désormais enchainer avec la tâche ‘’Dockerize Angular app’’ et ‘’learn Nginx’’
+ 
+10 novembre :
+•	Ce que j’ai fait :
+o	J’ai complété les tâches ‘’Dockerize Angular app et learn Nginx config’’
+o	J’ai surfé sur YouTube et google pour apprendre comment docker une application Angular.
+•	Ce que j’ai appris :
+o	J’ai appris comment dockerize une application Angular, c’était assez facile de trouver des vidéos, mais chaque vidéo avait quelque différence alors il m’était difficile de trouver les bonnes informations.
+o	Voici les vidéos que j’ai regardé pour apprendre comment dockerize un Angular app.
+	https://www.youtube.com/watch?v=etA5xiX5TCA
+	https://www.youtube.com/watch?v=J9uKG22lBwA
+o	J’ai aussi appris comment configurer un serveur web Nginx pour une application Angular.
+o	Voici les articles m’ayant permis d’apprendre cela :
+	https://www.serverlab.ca/tutorials/linux/web-servers-linux/how-to-configure-nginx-for-angular-and-reactjs/
+	https://medium.com/@benhaddou.chakib/angular-routing-when-using-unprivileged-nginx-inside-a-docker-container-f6d4be95e0a8
+•	GitHub :
+o	Voici le commit étant relié à la création de mon docker file et Nginx config :
+	https://github.com/progdev8201/whatarewecooking-app/commit/a660bd662f080c97538507e31deaa3c6df3f0a56
+
+•	Trello :
+o	J’ai terminé avec les tâches‘’Dockerize Angular app et learn Nginx config’’
+o	Je vais maintenant enchaîner avec la tâche : ‘’ Dockerize spring boot app’’
+ 
+11 novembre
+•	Ce que j’ai fait :
+o	J’ai complété la tâche ‘’Dockerize Spring boot app’’.
+o	Après avoir complété ma tâche, j’ai push mes images dans mon docker hub
+o	J’ai surfé le web pour trouver le plus d’information pour savoir comment dockerize un Spring boot app de la bonne manière.
+o	Je me suis créé un cheatsheet docker.
+•	Ce que j’ai appris :
+o	J’ai appris comment dockerize un Spring boot app, c’était assez direct comme implémentation puisque c’était similaire à dockerize une application Angular.
+o	Voici les liens videos + article que j’ai regardé pour :
+	https://spring.io/guides/gs/spring-boot-docker/
+	https://www.youtube.com/watch?v=e3YERpG2rMs&t=677s
+•	GitHub :
+o	Voici le lien vers le commit contenant le docker file Spring boot
+	https://github.com/progdev8201/whatarewecooking-app/commit/95285fbf40ece7c27ac76c285e9328db2456a0e1
+•	Trello :
+o	J’ai terminé avec la tâche ‘’Dockerize Spring boot app’’
+o	Je vais désormais enchainer avec la tâche ‘’Apprendre à configurer une instance EC2’’
+ 
+12 novembre
+•	Ce que j’ai fait :
+o	J’ai complété la tâche ‘’Learn docker-compose’’
+•	Ce que j’ai appris :
+o	J’ai appris ce qu’est docker compose : 
+	Docker compose est un outil qui permet d’automatiser le déploiement des conteneurs docker à l’aide d’un fichier de configuration yaml
+	https://www.youtube.com/watch?v=Qw9zlE3t8Ko
+	https://docs.docker.com/compose/compose-file/#container_name
+•	Github :
+o	Voici le lien contenant le fichier docker-compose.yaml
+	https://github.com/progdev8201/whatarewecooking-app/commit/1b0d81f32dff5e645c4bbc362ccc2df444cb43e3
+•	Trello :
+o	J’ai terminé avec la tâche ‘’Learn docker-compose’’.
+o	Je vais enchainer avec les tâches ‘’Apprendre à configurer une instance EC2’’ et ‘’Add docker sur mon instance’’.
+ 
+16 novembre 
+•	Ce que j’ai fait :
+o	J’ai complété les tâches ‘’ Apprendre à configurer une instance EC2’’ et ‘’Add docker sur mon instance’’
+o	Je peux désormais instancier une machine virtuelle sur le cloud.
+•	Ce que j’ai appris :
+o	J’ai appris comment créer une instance EC2 qui est un server virtuel dans le Amazon`s Elastic Compute Cloud (EC2). Pour apprendre cela j’ai regardé la vidéo suivante :
+	https://www.youtube.com/watch?v=1fnPCWBikYQ
+•	GitHub :
+o	Aucun changement.
+•	Trello :
+o	J’ai terminé les tâches ‘’ Apprendre à configurer une instance EC2’’ et ‘’Add docker sur mon instance’’.
+o	Je vais désormais enchainer avec les tâches : ‘Set up remote control sur visual studio code’’, ‘’ Créer un IAAS aws pour mon back end avec docker’’ et ‘’ Créer un IAAS aws pour mon front end avec docker’’.
+ 
+17 novembre :
+•	Ce que j’ai fait :
+o	J’ai complété les tâches : ‘Set up remote control sur visual studio code’’, ‘’ Créer un IAAS aws pour mon back end avec docker’’ et ‘’Créer un IAAS aws pour mon front end avec docker’’.
+o	J’ai choisi une machine virtuelle sur aws grâce au service ec2.
+o	J’ai modifié les configurations de mon application spring boot pour qu’il accepte les requêtes de mon serveur front end.
+o	J’ai modifié les configurations de mon application angular pour qu’il fasse les requêtes au bon lien.
+o	J’ai créé un fichier docker compose pour chacune de mes apps.
+•	Ce que j’ai appris :
+o	J’ai appris comment set up un remote control avec visual studio code ce qui rend l’accès à mes instances virtuelles beaucoup plus simple.
+	https://www.youtube.com/watch?v=lKXMyln_5q4&list=LL&index=6&t=318s
+•	GitHub :
+o	Voici le lien relié au cors policy du spring boot app :
+	https://github.com/progdev8201/whatarewecooking-app/commit/7a9197d3695e121e866aa4d5806c5f61620da989
+o	Voici le lien relié au changement de l’address ip de mon angular app ainsi que l’ajout de mon docker compose file
+	https://github.com/progdev8201/whatarewecooking-app/commit/b345393a194578cfb73ee45d9a84ea901717d02f
+•	Trello :
+o	J’ai terminé avec les tâches : ‘Set up remote control sur visual studio code’’, ‘’ Créer un IAAS aws pour mon back end avec docker’’ et ‘’Créer un IAAS aws pour mon front end avec docker’’.
+o	Je vais désormais enchainer avec la tâche ‘’ Créer un IAAS linode pour mon front end’’
+ 
+19 novembre :
+•	Ce que j’ai fait :
+o	J’ai complété la tâche ‘’ Créer un IAAS linode pour mon front end’’.
+o	J’ai choisi une machine virtuelle baked avec docker sur linode.
+o	J’ai setup le remote contrôle avec vs code sur mon instance.
+•	Ce que j’ai appris :
+	J’ai appris la technologie cloud linode, qui est une platforme d’hébergement de cloud privée tout comme aws.
+	Voici ou j’ai appris linode :
+•	https://www.youtube.com/watch?v=eGz9DS-aIeY
+•	GitHub :	
+o	Voici le lien relié à mon cors policy pour le front end :
+	https://github.com/progdev8201/whatarewecooking-app/commit/7a9197d3695e121e866aa4d5806c5f61620da989
+•	Trello :
+o	J’ai terminé la tâche ‘’ Créer un IAAS linode pour mon front end’’.
+o	Je vais désormais enchainer avec la tâche ‘’ Apprendre Jenkins ainsi que la tâche créer un serveur Jenkins’’.
+ 
+23 novembre :
+•	Ce que j’ai fait:
+o	J’ai complété la tâche ‘’apprendre Jenkins ainsi que la tâche créer un serveur Jenkins’’ 
+o	J’ai regardé des vidéos YouTube pour pouvoir mieux apprendre sur la technologie et sa raison d’être.
+•	Ce que j’ai appris:
+o	J’ai appris ce qu’est Jenkins :
+	Jenkins est un serveur d’automation permettant d’automatiser les test/build/déploiement des applications.
+o	J’ai appris comment installer un serveur Jenkins :
+	https://www.youtube.com/watch?v=FX322RVNGj4&t=2235s
+	https://www.youtube.com/watch?v=7KCS70sCoK0&t=770s
+	https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-18-04
+•	GitHub:
+o	Rien.
+•	Trello:
+o	J’ai terminé les tâches ‘’apprendre Jenkins ainsi que la tâche créer un serveur Jenkins’’.
+o	Je vais désormais enchaîner avec les tâches ‘’Apprendre a git clone sur Jenkins et apprendre les pipelines de Jenkins’’.
+ 
+24 novembre :
+•	Ce que j’ai fait :
+o	J’ai complété les tâches ‘’Apprendre à git clone sur Jenkins et apprendre les pipelines de Jenkins’’.
+o	J’ai fait des recherches en ligne pour savoir comment rajouter les configurations de git credentials sur jenkins.
+o	J’ai séparé mon projet en deux repository, un pour le backend un pour le front end
+o	J’ai écrit mon premier pipeline qui est capable de pull mon projet front end
+•	Ce que j’ai appris :
+o	J’ai appris comment enregistrer des credentials sur jenkins, grâce à YouTube :
+	https://www.youtube.com/watch?v=DCY530UL0as
+•	GitHub :
+o	Voici le lien vers mes deux nouveaux repository :
+	https://github.com/progdev8201/cooking-app-frontend
+	https://github.com/progdev8201/cooking-app-backend
+•	Trello :
+o	J’ai terminé les tâches ‘’Apprendre à git clone sur Jenkins et apprendre les pipelines de Jenkins’’.
+o	Je vais désormais enchainer avec les tâches ‘’ Apprendre à executé des commandes remotes’’, ‘’ Creer un pipeline CI/CD pour mon backend’’ et ‘’Creer un pipeline CI/CD pour mon frontend’’
+ 
+26 novembre :
+•	Ce que j’ai fait :
+o	J’ai terminé les tâches ‘’ Apprendre à executé des commandes remotes’’, ‘’ Creer un pipeline CI/CD pour mon backend’’ et ‘’Creer un pipeline CI/CD pour mon frontend’’
+o	J’ai fait beaucoup de recherches pour apprendre comment exécuter des commandes remotes.
+•	Ce que j’ai appris :
+o	J’ai appris comment faire des commandes remotes, c’est-à-dire pouvoir exécuter une suite de commandes sur un serveur distant.
+	https://malcontentcomics.com/systemsboy/2006/07/send-remote-commands-via-ssh.html
+	https://zaiste.net/posts/few-ways-to-execute-commands-remotely-ssh/
+o	À partir de cela j’ai pu exécuter les commandes nécessaires pour pouvoir deploy la nouvelle version de mon application sur mes instances ec2.
+•	Github :
+o	Rien
+•	Trello :
+o	J’ai terminé les tâches ‘’ Apprendre à executé des commandes remotes’’, ‘’ Creer un pipeline CI/CD pour mon backend’’ et ‘’Creer un pipeline CI/CD pour mon frontend’’
+o	Une fois que j’aurais terminé mon projet personnel avec mon camarade, je souhaite continuer de travailler sur cette application et commencer à l’utiliser personnellement.
