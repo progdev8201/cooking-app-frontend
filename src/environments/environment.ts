@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const host = 'http://52.15.54.223';
+const host = 'http://3.129.204.119';
 const port = '';
 const link = host + port;
 

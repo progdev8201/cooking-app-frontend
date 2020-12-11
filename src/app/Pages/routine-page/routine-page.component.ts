@@ -15,7 +15,7 @@ export class RoutinePageComponent implements OnInit {
   routines:RoutineDTO[];
   durationInSeconds = 5;
 
-  constructor(private router:Router,private _snackBar: MatSnackBar,private routineService: RoutineService,public dialog: MatDialog) { }
+  constructor(private routineService: RoutineService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initRoutines();
@@ -38,12 +38,7 @@ export class RoutinePageComponent implements OnInit {
   //SERVICES
 
   initRoutines(){
-    this.routineService.findAll().subscribe(data => {
-      this.routines = data;
-      
-    },error =>{
-      console.log(error);
-    })
+    this.routineService.findAll().subscribe(data => this.routines = data);
   }
 
   onDeleteRoutine(routineId: string){

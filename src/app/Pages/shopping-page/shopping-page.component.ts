@@ -52,9 +52,7 @@ export class ShoppingPageComponent implements OnInit {
   }
 
   onDelete(routineArticleId:string){
-    this.shoppingList = this.shoppingList.filter((routineArticle) =>{
-      return routineArticle.id != routineArticleId;
-    });
+    this.shoppingList = this.shoppingList.filter(routineArticle => routineArticle.id != routineArticleId);
 
     this.shoppingService.updateShoppingList(this.shoppingList).subscribe((data) =>{
       this.shoppingList = data;

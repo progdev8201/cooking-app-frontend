@@ -62,8 +62,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
         tokenGetter: () => {
           return localStorage.getItem("token");
         },
-        allowedDomains: ['52.15.54.223'],
-        disallowedRoutes: ['52.15.54.223/authenticate','52.15.54.223/registration'],
+        allowedDomains: ['3.129.204.119','localhost:9090'],
+        disallowedRoutes: ['3.129.204.119/authenticate','3.129.204.119/registration','localhost:9090/authenticate','localhost:9090/registration'],
       },
     }),
     BrowserAnimationsModule,
