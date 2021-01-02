@@ -25,9 +25,9 @@ pipeline {
                 url: 'https://github.com/progdev8201/cooking-app-frontend.git'
                 
                 sh("""
-                docker-compose -f docker-compose-home.yml down;
+                docker-compose -f docker-compose-home-server.yml down;
                 docker system prune -a -f;
-                docker-compose -f docker-compose-home.yml up -d;
+                docker-compose -f docker-compose-home-server.yml up -d;
                 """)
            }
         }
