@@ -12,7 +12,7 @@ pipeline {
                 
                 sh "docker login --username orewaprogdev13 --password kulotte2015"
                 
-                sh "docker build -t orewaprogdev13/cooking-app ."
+                sh "docker build --build-arg environement=dev -t orewaprogdev13/cooking-app ."
                 
                 sh "docker push orewaprogdev13/cooking-app"
             }
