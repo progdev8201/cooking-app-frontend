@@ -7,6 +7,7 @@ WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run ng build --configuration=${environement}
+RUN echo ${environement}
 
 #stage 2
 FROM nginx:1.16.0-alpine
