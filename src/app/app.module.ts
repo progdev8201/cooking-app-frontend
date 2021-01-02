@@ -27,6 +27,7 @@ import { ArticleCarouselComponent } from './components/article-carousel/article-
 import { RecipeCarouselComponent } from './components/recipe-carousel/recipe-carousel.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { jwtUrls } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
         tokenGetter: () => {
           return localStorage.getItem("token");
         },
-        allowedDomains: ['localhost:9090'],
-        disallowedRoutes: ['localhost:9090/authenticate','localhost:9090/registration'],
+        allowedDomains: jwtUrls.allowedDomains,
+        disallowedRoutes: jwtUrls.disallowedRoutes,
       },
     }),
     BrowserAnimationsModule,

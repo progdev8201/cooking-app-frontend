@@ -1,4 +1,4 @@
-const host = 'http://localhost:';
+const host = 'http://10.0.0.22:';
 const port = '9090';
 const link = host + port;
 
@@ -17,6 +17,6 @@ export const environment = {
 };
 
 export const jwtUrls={
-  allowedDomains: ["localhost:9090"],
-  disallowedRoutes:["localhost:9090/authenticate", "localhost:9090/registration"]
+  allowedDomains: ["10.0.0.22:9090"],
+  disallowedRoutes:["10.0.0.22:9090/authenticate", "10.0.0.22:9090/registration"]
 }
