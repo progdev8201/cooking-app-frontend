@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { JwtResponse } from 'src/app/models/jwt-response';
 import { LoginFormDTO } from 'src/app/models/login-form-dto';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { jwtUrls } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    console.log(jwtUrls.disallowedRoutes);
   }
 
   initForm() {
