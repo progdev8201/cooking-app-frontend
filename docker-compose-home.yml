@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  cooking-app:
+    image: orewaprogdev13/cooking-app
+    ports:
+      - 3000:80
