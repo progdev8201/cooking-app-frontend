@@ -6,7 +6,7 @@ ENV environement $environement
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run ng build --configuration=${environement}
+RUN node_modules/.bin/ng build --configuration=${environement}
 RUN echo ${environement}
 
 #stage 2
