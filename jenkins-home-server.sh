@@ -22,8 +22,6 @@ pipeline {
         
          stage('deploy app CD') {
             steps {
-                sh 'docker system prune -a -f'
-
                 sh 'docker-compose -f docker-compose-home-server.yml up -d'
            }
         }
