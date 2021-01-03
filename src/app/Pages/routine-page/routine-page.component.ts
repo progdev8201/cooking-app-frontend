@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { RoutineFormComponent } from 'src/app/components/routine-form/routine-form.component';
 import { RoutineDTO } from 'src/app/models/routine-dto';
 import { RoutineService } from 'src/app/services/routine.service';
