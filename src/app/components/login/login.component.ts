@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     console.log(jwtUrls.disallowedRoutes);
-    
   }
 
   initForm() {
