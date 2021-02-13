@@ -1,74 +1,3 @@
-<!--
-      <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
-    -->
-
-<!-- <mat-sidenav-container class="example-container">
-
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!') "
-    (closed)="events.push('close!')">
-    <div class="d-flex justify-content-between mat-elevation-z3 pt-2 bg-white" style="height: 60px;">
-      <p class="text-center ml-3 mt-2 text-dark">COOKING MENU</p>
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>disabled_by_default</mat-icon>
-      </button>
-    </div>
-
-
-    <mat-selection-list #shoes [multiple]="false">
-
-      <ng-container *ngIf="isConnected()">
-        <mat-list-option class="m-0 p-0" routerLink="home" (click)="sidenav.toggle()">
-          <div class="d-flex">
-            <mat-icon class="mr-3">kitchen</mat-icon>
-            <p>home</p>
-          </div>
-        </mat-list-option>
-        <mat-divider></mat-divider>
-      </ng-container>
-      
-      
-      <ng-container *ngIf="isConnected()">
-        <mat-list-option routerLink="shopping" (click)="sidenav.toggle()">
-          <div class="d-flex">
-            <mat-icon class="mr-3">add_shopping_cart</mat-icon>
-            <p>shop</p>
-          </div>
-        </mat-list-option>
-        <mat-divider></mat-divider>
-      </ng-container>
-      
-      <ng-container *ngIf="isConnected()">
-        <mat-list-option (click)="logout()" (click)="sidenav.toggle()">
-          <div class="d-flex">
-            <mat-icon class="mr-3">exit_to_app</mat-icon>
-            <p>logout</p>
-          </div>
-        </mat-list-option>
-        <mat-divider></mat-divider>
-      </ng-container>
-
-    </mat-selection-list>
-
-  </mat-sidenav>
-
-  <mat-sidenav-content class="bg-white">
-    <div id="opaque" class="mat-elevation-z3 pt-2 bg-white" style="height: 60px;">
-
-      <button mat-icon-button class="nonOpaque" (click)="sidenav.toggle()" *ngIf="!opened">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-
-    <div id="page-container">
-      <div>
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-
-  </mat-sidenav-content>
-
-</mat-sidenav-container> -->
-
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
@@ -140,7 +69,7 @@
 
     </mat-sidenav>
 
-    <mat-sidenav-content class="routing-outlet">
+    <mat-sidenav-content class="routing-outlet bg-dark">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
