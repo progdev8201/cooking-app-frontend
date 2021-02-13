@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationFormDTO } from 'src/app/models/registration-form-dto';
@@ -14,8 +15,15 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   emailAlreadyUsed: boolean = false;
+  mobileQuery: MediaQueryList;
 
-  constructor(private formBuilder: FormBuilder,private registrationService: RegistrationService,private router: Router) { }
+  private _mobileQueryListener: () => void;
+
+  constructor(private formBuilder: FormBuilder,private registrationService: RegistrationService,private router: Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.init();
