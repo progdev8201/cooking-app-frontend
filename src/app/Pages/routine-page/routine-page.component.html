@@ -17,9 +17,6 @@
                         
                         
                         <!--article routine table-->
-                        <ng-container>
-                            <app-routine-articles-table *ngIf="routine.panelOpenState" (refreshRoutines)="initRoutines()" [routine] = "routine"  [routineArticles] = "routine.routineArticles"></app-routine-articles-table>
-                        </ng-container>
                         
                         <app-routine-articles-table *ngIf="routine.panelOpenState" (refreshRoutines)="initRoutines()" [routine] = "routine"  [routineArticles] = "routine.routineArticles"></app-routine-articles-table>
 
