@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RoutineFormComponent } from 'src/app/components/routine-form/routine-form.component';
 import { RoutineDTO } from 'src/app/models/routine-dto';
@@ -12,8 +13,15 @@ import { RoutineService } from 'src/app/services/routine.service';
 export class RoutinePageComponent implements OnInit {
   routines:RoutineDTO[];
   durationInSeconds = 5;
+  mobileQuery: MediaQueryList;
 
-  constructor(private routineService: RoutineService,public dialog: MatDialog) { }
+  private _mobileQueryListener: () => void;
+
+  constructor(private routineService: RoutineService,public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.initRoutines();

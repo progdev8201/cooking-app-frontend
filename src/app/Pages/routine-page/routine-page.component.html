@@ -3,7 +3,7 @@
         <h1 class="text-center mx-auto w-75 border-bottom border-secondary">MY ROUTINES</h1>
     </div>
     <div class="row">
-        <div class="col-11 mx-auto overflow-auto pb-2" style="max-height: 700px;">
+        <div class="col-12 mx-auto overflow-auto pb-2" [ngClass]="{'p-0' : mobileQuery.matches, '' : !mobileQuery.matches}" style="max-height: 700px;">
             <mat-accordion *ngIf="routines">
                 <ng-container *ngFor="let routine of routines">
 
@@ -20,12 +20,13 @@
                         <ng-container>
                             <app-routine-articles-table *ngIf="routine.panelOpenState" (refreshRoutines)="initRoutines()" [routine] = "routine"  [routineArticles] = "routine.routineArticles"></app-routine-articles-table>
                         </ng-container>
-
+                        
+                        <app-routine-articles-table *ngIf="routine.panelOpenState" (refreshRoutines)="initRoutines()" [routine] = "routine"  [routineArticles] = "routine.routineArticles"></app-routine-articles-table>
 
                         <mat-action-row class="d-flex justify-content-between">
                             <button mat-raised-button color="warn" (click)="onDeleteRoutine(routine.id)">Delete</button>
                             <button mat-raised-button class="bg-dark text-white" (click)="openDialog(routine)">Edit</button>
-                          </mat-action-row>
+                        </mat-action-row>
                     </mat-expansion-panel>
 
                 </ng-container>
