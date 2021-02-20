@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 h-100" [ngClass]="{'p-0': mobileQuery.matches, '' : !mobileQuery.matches}">
     <div class="row">
 
         <!--RENDER RECIPE LIST-->

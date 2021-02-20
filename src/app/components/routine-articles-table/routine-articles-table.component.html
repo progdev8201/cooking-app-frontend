@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" [ngClass]="{'p-0' : mobileQueryIphone5.matches, '' : !mobileQueryIphone5.matches}">
 
-    <div class="row pt-3">
-      <h1 class="text-center mx-auto w-50 border-bottom border-secondary">
+      <div class="row pt-3">
+   <h1 class="text-center mx-auto w-50 border-bottom border-secondary">
         MY ARTICLES
       </h1>
       <div class="container">
@@ -84,11 +84,12 @@
           <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
         </div>
       </div>
-      <div class="container d-flex justify-content-around mt-3">
-        <button class="bg-success text-white w-25" [disabled]="selection.selected.length == 0" mat-raised-button (click)="addToShop()">
+      
+      <div class="container d-flex justify-content-around mt-3 mb-3">
+        <button class="bg-success text-white m-1" [ngClass]="{'w-50' : mobileQuery.matches, 'w-25' : !mobileQuery.matches}" [disabled]="selection.selected.length == 0" mat-raised-button (click)="addToShop()">
           Add to shop
         </button>
-        <button class="bg-dark text-white w-25" mat-raised-button (click)="openDialog()" >
+        <button class="bg-dark text-white m-1" [ngClass]="{'w-50' : mobileQuery.matches, 'w-25' : !mobileQuery.matches}" mat-raised-button (click)="openDialog()" >
           Add Article
         </button>
       </div>

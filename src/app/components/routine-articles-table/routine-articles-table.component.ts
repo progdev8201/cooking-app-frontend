@@ -1,5 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { NONE_TYPE } from '@angular/compiler';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -24,13 +26,23 @@ export class RoutineArticlesTableComponent implements OnInit {
   dataSource = new MatTableDataSource<RoutineArticleDTO>([]);
   selection = new SelectionModel<RoutineArticleDTO>(true, []);
   durationInSeconds = 5;
+  mobileQuery: MediaQueryList;
+  mobileQueryIphone5: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
 
   @Input() routine: RoutineDTO;
   @Output() refreshRoutines = new EventEmitter<any>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private _snackBar: MatSnackBar,public dialog: MatDialog,private shoppingService:ShoppingService, private routineService: RoutineService,private router:Router) { }
+  constructor(private _snackBar: MatSnackBar,public dialog: MatDialog,private shoppingService:ShoppingService, private routineService: RoutineService,private router:Router, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQueryIphone5 = media.matchMedia('(max-width: 330px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQueryIphone5.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.initTable();
@@ -52,7 +64,9 @@ export class RoutineArticlesTableComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(RoutineArticleAddComponent, {
-      width: '800px',
+      width: '100%',
+      maxWidth:this.mobileQuery.matches ? '100%' : '50%',
+      panelClass: 'app-routine-article-add-dialog',
       data: this.routine
     });
 

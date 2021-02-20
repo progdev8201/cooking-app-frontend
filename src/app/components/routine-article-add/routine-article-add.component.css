@@ -10,3 +10,10 @@ table {
   td, th {
     width: 25%;
   }
+
+
+  @media screen and (max-width:600px){
+    ::ng-deep .app-routine-article-add-dialog .mat-dialog-container{
+      padding: 0px !important;
+    }
+  }

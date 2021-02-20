@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -18,10 +19,17 @@ export class RecipePageComponent implements OnInit {
   displayedColumns: string[] = ['image', 'name', 'country', 'recipe type', 'details', 'delete'];
   dataSource = new MatTableDataSource<RecipeDTO>([]);
   recipes: RecipeDTO[] = [];
+  mobileQuery: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private recipeService: RecipeService, public dialog: MatDialog) { }
+  constructor(private recipeService: RecipeService, public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 380px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.initRecipes();

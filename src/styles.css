@@ -3,11 +3,6 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-select, textarea, input, input[type="text"], input[type="password"],
-    input[type="datetime"], input[type="datetime-local"],
-    input[type="date"], input[type="month"], input[type="time"],
-    input[type="week"], input[type="number"], input[type="email"],
-    input[type="url"]{ background-color: yellow; }
 
 /*** iPhone and iOS Form Input Zoom Fixes ***/
 /* Fix Input Zoom on devices older than iPhone 5: */
@@ -16,7 +11,7 @@ select, textarea, input, input[type="text"], input[type="password"],
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"],
-    input[type="url"]{ font-size: 16px; }
+    input[type="url"]{ font-size: 16px !important; }
 }
 
 /* Fix Input Zoom on iPhone 5, 5C, 5S, iPod Touch 5g */
@@ -25,7 +20,7 @@ select, textarea, input, input[type="text"], input[type="password"],
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"],
-    input[type="url"]{ font-size: 16px; }
+    input[type="url"]{ font-size: 16px !important; }
 }
 
 /* Fix Input Zoom on iPhone 6, iPhone 6s, iPhone 7  */
@@ -34,7 +29,7 @@ select, textarea, input, input[type="text"], input[type="password"],
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"], 
-    input[type="tel"], input[type="url"]{ font-size: 16px; }
+    input[type="tel"], input[type="url"]{ font-size: 16px !important; }
 }
 
 /* Fix Input Zoom on iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus, iPhone 8, iPhone X, XS, XS Max  */
@@ -43,5 +38,5 @@ select, textarea, input, input[type="text"], input[type="password"],
     input[type="datetime"], input[type="datetime-local"],
     input[type="date"], input[type="month"], input[type="time"],
     input[type="week"], input[type="number"], input[type="email"],
-    input[type="tel"], input[type="url"]{ font-size: 16px; }
+    input[type="tel"], input[type="url"]{ font-size: 16px !important; }
 }
