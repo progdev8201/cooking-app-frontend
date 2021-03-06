@@ -5,80 +5,81 @@
   <mat-divider></mat-divider>
   <!--CARD BODY-->
   <div mat-dialog-content class="text-center mx-auto col-lg-12 mt-2">
-      <!--name-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article name</mat-label>
-          <input matInput placeholder="Ex. apple" formControlName="name" autocomplete="off">
-          <mat-hint>name</mat-hint>
-          <mat-error>name cannot be blank</mat-error>
-        </mat-form-field>
-      </p>
-      
-      <!--price-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article price</mat-label>
-          <input type="number" matInput placeholder="0.00$" formControlName="price" autocomplete="off">
-          <mat-hint>CAD</mat-hint>
-          <mat-error>price cannot be blank</mat-error>
-        </mat-form-field>
-      </p>
-      
-      <!--file-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article Image</mat-label>
-          <ngx-mat-file-input [disabled]="disabled" [accept]="accept" [multiple]="multiple" formControlName="file" placeholder="select image" ></ngx-mat-file-input>
-          <mat-hint>image</mat-hint>
-          <mat-icon matSuffix>attach_file</mat-icon>
-          <mat-error *ngIf="getF().file.hasError('maxContentSize')">max file size exceeded</mat-error>
-        </mat-form-field>
-      </p>
-      
-      <!--description-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article description</mat-label>
-          <textarea matInput formControlName="description" autocomplete="off"></textarea>
-          <mat-hint>description</mat-hint>
-        </mat-form-field>
-      </p>
-      
-      <!--type-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article type</mat-label>
-          <mat-select formControlName="type">
-            <mat-option *ngFor="let type of typeValues" [value]="type">{{type}}</mat-option>
-          </mat-select>
-          <mat-hint>type</mat-hint>
-          <mat-error>you must choose a type</mat-error>
-        </mat-form-field>
-      </p>
-      
-      <!--categorie-->
-      <p>
-        <mat-form-field appearance="outline" class="w-75">
-          <mat-label>Article category</mat-label>
-          <mat-select formControlName="categorie">
-            <mat-option  *ngFor="let category of categorieValues" [value]="category">{{category}}</mat-option>
-          </mat-select>
-          <mat-hint>category</mat-hint>
-          <mat-error>you must choose a category</mat-error>
-        </mat-form-field>
-      </p>
-    </div>
-  
+    <!--name-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article name</mat-label>
+        <input matInput placeholder="Ex. apple" formControlName="name" autocomplete="off">
+        <mat-hint>name</mat-hint>
+        <mat-error>name cannot be blank</mat-error>
+      </mat-form-field>
+    </p>
+
+    <!--price-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article price</mat-label>
+        <input type="number" matInput placeholder="0.00$" formControlName="price" autocomplete="off">
+        <mat-hint>CAD</mat-hint>
+        <mat-error>price cannot be blank</mat-error>
+      </mat-form-field>
+    </p>
+
+    <!--file-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article Image</mat-label>
+        <ngx-mat-file-input [disabled]="disabled" [accept]="accept" [multiple]="multiple" formControlName="file"
+          placeholder="select image"></ngx-mat-file-input>
+        <mat-hint>image</mat-hint>
+        <mat-icon matSuffix>attach_file</mat-icon>
+        <mat-error *ngIf="getF().file.hasError('maxContentSize')">max file size exceeded</mat-error>
+      </mat-form-field>
+    </p>
+
+    <!--description-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article description</mat-label>
+        <textarea matInput formControlName="description" autocomplete="off"></textarea>
+        <mat-hint>description</mat-hint>
+      </mat-form-field>
+    </p>
+
+    <!--type-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of typeValues" [value]="type">{{type}}</mat-option>
+        </mat-select>
+        <mat-hint>type</mat-hint>
+        <mat-error>you must choose a type</mat-error>
+      </mat-form-field>
+    </p>
+
+    <!--categorie-->
+    <p>
+      <mat-form-field appearance="outline" class="w-75">
+        <mat-label>Article category</mat-label>
+        <mat-select formControlName="categorie">
+          <mat-option *ngFor="let category of categorieValues" [value]="category">{{category}}</mat-option>
+        </mat-select>
+        <mat-hint>category</mat-hint>
+        <mat-error>you must choose a category</mat-error>
+      </mat-form-field>
+    </p>
+  </div>
+
   <mat-divider></mat-divider>
 
   <!--CARD FOOTER-->
   <div class="d-flex justify-content-between mt-2">
     <button mat-raised-button class="btn-dark text-white" (click)="onNoClick()">Cancel</button>
-    <button  mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()" *ngIf="!data">Create</button>
-    <button  mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()" *ngIf="data">Update</button>
+    <button mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()"
+      *ngIf="!data">Create</button>
+    <button mat-raised-button class="btn-dark text-white" cdkFocusInitial (click)="onSubmitForm()"
+      *ngIf="data">Update</button>
   </div>
-  
+
 </form>
-  
-  

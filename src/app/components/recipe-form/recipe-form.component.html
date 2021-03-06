@@ -1,12 +1,12 @@
-<form [formGroup]="recipeForm" style="max-height: 600px;" class="overflow-auto">
+<!--HEADER-->
+<h1 mat-dialog-title class="text-center">{{title}}</h1>
+<mat-divider></mat-divider>
 
-  <!--HEADER-->
-  <h1 mat-dialog-title class="text-center">{{title}}</h1>
-  <mat-divider></mat-divider>
+<form mat-dialog-content [formGroup]="recipeForm" class="p-0">
 
   <!--FORMS INPUT-->
-  <div mat-dialog-content class="text-center mx-auto col-lg-12 mt-2">
-    <h1 class="text-center mx-auto w-50 border-bottom border-secondary">
+  <div class="text-center mx-auto col-lg-12 mt-2">
+    <h1 class="text-center mx-auto border-bottom border-secondary" [ngClass]="{'w-50' : !this.mobileQuery.matches, 'w-100' : this.mobileQuery.matches}">
       RECIPE DETAILS
     </h1>
 
@@ -72,7 +72,7 @@
   <div class="container mb-4">
 
     <div class="row pt-3">
-      <h1 class="text-center mx-auto w-50 border-bottom border-secondary">
+      <h1 class="text-center mx-auto border-bottom border-secondary" [style]="this.mobileQuery.matches ? 'width: 90%;' : 'width: 50%'" >
         MY INGREDIENTS
       </h1>
       <div class="container">
@@ -151,10 +151,11 @@
   <mat-divider></mat-divider>
   <div class="container mt-2 mb-3">
 
-    <h1 class="text-center w-50 mx-auto border-bottom border-dark">INSTRUCTIONS</h1>
+    <h1 class="text-center mx-auto border-bottom border-dark" [ngClass]="{'w-50' : !this.mobileQuery.matches, 'w-100' : this.mobileQuery.matches}">INSTRUCTIONS</h1>
 
     <div class="text-center mat-elevation-z8 pt-4">
       <ng-container formArrayName="instructions">
+        <p *ngIf="getInstructions().controls.length == 0">Click + to add an instruction</p>
 
         <p class="m-0" *ngFor="let instruction of getInstructions().controls let i = index">
           <ng-container [formGroup]="instruction">

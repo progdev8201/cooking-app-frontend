@@ -20,6 +20,7 @@ export class RecipePageComponent implements OnInit {
   dataSource = new MatTableDataSource<RecipeDTO>([]);
   recipes: RecipeDTO[] = [];
   mobileQuery: MediaQueryList;
+  mobileQueryIphone6Plus: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
@@ -27,8 +28,10 @@ export class RecipePageComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   constructor(private recipeService: RecipeService, public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
     this.mobileQuery = media.matchMedia('(max-width: 380px)');
+    this.mobileQueryIphone6Plus = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQueryIphone6Plus.addListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {
@@ -39,7 +42,8 @@ export class RecipePageComponent implements OnInit {
 
   openDialog(recipe: RecipeDTO) {
     const dialogRef = this.dialog.open(RecipeFormComponent, {
-      width: '800px',
+      width: this.mobileQueryIphone6Plus.matches ? '100%' : '45%',
+      maxWidth: '100%',
       data: recipe
     });
 

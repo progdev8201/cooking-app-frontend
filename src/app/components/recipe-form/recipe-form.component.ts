@@ -1,4 +1,5 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -26,6 +27,9 @@ export class RecipeFormComponent implements OnInit {
   dataSource = new MatTableDataSource<RecipeArticleDTO>(this.recipeArticles);
   title: string;
   recipeTypes: string[] = Object.keys(RecipeType);
+  mobileQuery: MediaQueryList;
+
+  private _mobileQueryListener: () => void;
 
   //file setup
 
@@ -36,7 +40,11 @@ export class RecipeFormComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private imageService: ImageService, public dialog: MatDialog, private recipeService: RecipeService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<RecipeFormComponent>, @Inject(MAT_DIALOG_DATA) public data: RecipeDTO) { }
+  constructor(private imageService: ImageService, public dialog: MatDialog, private recipeService: RecipeService, private formBuilder: FormBuilder, public dialogRef: MatDialogRef<RecipeFormComponent>, @Inject(MAT_DIALOG_DATA) public data: RecipeDTO, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) { 
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -94,7 +102,9 @@ export class RecipeFormComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(RecipeArticleAddComponent, {
-      width: '800px',
+      width: '100%',
+      maxWidth:this.mobileQuery.matches ? '100%' : '50%',
+      panelClass: 'app-routine-article-add-dialog',
       data: this.recipeArticles
     });
 
