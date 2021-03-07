@@ -11,7 +11,7 @@ td, th {
   width: 20% !important;
 }
 
-th:nth-of-type(1){
+/* th:nth-of-type(1){
   background-color: yellow;
 }
 th:nth-of-type(2){
@@ -19,8 +19,8 @@ th:nth-of-type(2){
 }
 th:nth-of-type(3){
   background-color: orange;
-}
-.mat-column.quantity{
+} */
+/* .mat-column.quantity{
   width: 5% !important;
   flex: 0 0 28% !important;
 }
@@ -29,7 +29,7 @@ th:nth-of-type(4){
 }
 th:nth-of-type(5){
   background-color: purple;
-}
+} */
 
 @media screen and (max-width:600px){
   ::ng-deep .app-routine-article-add-dialog .mat-dialog-container{

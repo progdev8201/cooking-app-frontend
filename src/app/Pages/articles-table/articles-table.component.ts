@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AllArticleOccurencesDialogComponent } from 'src/app/components/all-article-occurences-dialog/all-article-occurences-dialog.component';
 import { ArticleCreateFormComponent } from 'src/app/components/article-create-form/article-create-form.component';
 import { ArticleDTO } from 'src/app/models/article-dto';
 import { ArticleService } from 'src/app/services/article.service';
@@ -40,6 +41,21 @@ export class ArticlesTableComponent implements OnInit {
         this.initArticles();
     });
   }
+
+  openFindAllOccurencesDialog(article:ArticleDTO): void{
+    this.articleService.findAllOccurences(article.id).subscribe(occurences =>{
+      if (occurences.length > 0) {
+        // logique to open dialog by passing occurences
+        const dialogRef = this.dialog.open(AllArticleOccurencesDialogComponent,{
+          data : occurences
+        });
+
+      }else {
+        // simply delete object
+        this.deleteArticle(article.id);
+      }
+    })
+  }
   
   changeCurrentArticle(article:ArticleDTO){
     this.openDialog(article);
@@ -72,7 +88,6 @@ export class ArticlesTableComponent implements OnInit {
       this.initArticles();
     });
   }
-
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

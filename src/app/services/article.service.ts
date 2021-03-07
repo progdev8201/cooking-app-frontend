@@ -22,6 +22,10 @@ export class ArticleService {
     return this.http.get<[ArticleDTO]>(`${environment.articleUrl}/${localStorage.getItem('userId')}`);
   }
 
+  findAllOccurences(articleId:string): Observable<string[]>{
+    return this.http.get<string[]>(`${environment.articleUrl}/findAllOccurences/${localStorage.getItem('userId')}/${articleId}`);
+  }
+
   update(articleDTO: ArticleDTO): Observable<ArticleDTO> {
     return this.http.put<ArticleDTO>(`${environment.articleUrl}/${localStorage.getItem('userId')}`, articleDTO);
   }
