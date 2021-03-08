@@ -42,17 +42,23 @@ export class ArticlesTableComponent implements OnInit {
     });
   }
 
-  openFindAllOccurencesDialog(article:ArticleDTO): void{
-    this.articleService.findAllOccurences(article.id).subscribe(occurences =>{
+  openFindAllOccurencesDialog(articleDto: ArticleDTO): void{
+    this.articleService.findAllOccurences(articleDto.id).subscribe(occurences =>{
       if (occurences.length > 0) {
         // logique to open dialog by passing occurences
         const dialogRef = this.dialog.open(AllArticleOccurencesDialogComponent,{
-          data : occurences
+          width: '450px',
+          data : {occurences,articleDto}
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result == 'refresh') 
+            this.initArticles();
         });
 
       }else {
         // simply delete object
-        this.deleteArticle(article.id);
+        this.deleteArticle(articleDto.id);
       }
     })
   }

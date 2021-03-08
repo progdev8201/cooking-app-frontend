@@ -1,1 +1,16 @@
-<p>all-article-occurences-dialog works!</p>
+<h1 mat-dialog-title class="text-center mb-0">{{article.name}} was found in:</h1>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-content class="mt-1">
+    <ul>
+        <li *ngFor="let occurence of allOccurencesList">{{occurence}}</li>
+    </ul>
+</div>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-action class="d-flex justify-content-between mt-1">
+    <button mat-raised-button mat-dialog-close>Close</button>
+    <button mat-raised-button class="bg-danger text-white" (click)="onDelete()">Delete Everywhere</button>
+</div>

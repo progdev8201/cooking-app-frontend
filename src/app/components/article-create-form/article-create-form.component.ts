@@ -19,6 +19,7 @@ export class ArticleCreateFormComponent implements OnInit {
   categorieValues: string[] = Object.keys(ArticleCategorie);
   typeValues: string[] = Object.keys(ArticleType);
   title: string;
+  UNIQUE_NAME_CONSTRAINT: string = "Name of Article Cannot Be repeated";
 
   //file setup
 
@@ -82,11 +83,17 @@ export class ArticleCreateFormComponent implements OnInit {
   }
 
   createArticle(articleDTO: ArticleDTO) {
-    this.articleService.create(articleDTO).subscribe((data) => this.uploadImage(data.id));
+    this.articleService.create(articleDTO).subscribe((data) => this.uploadImage(data.id), error => this.handleNameError(error));
   }
 
   updateArticle(articleDTO: ArticleDTO) {
-    this.articleService.update(articleDTO).subscribe((data) => this.uploadImage(data.id));
+    this.articleService.update(articleDTO).subscribe((data) => this.uploadImage(data.id), error => this.handleNameError(error));
+  }
+  
+  handleNameError(error: any){
+    if (error.error.message == this.UNIQUE_NAME_CONSTRAINT) {
+      this.getF().name.setErrors({uniqueNameError:true});
+    }
   }
 
   uploadImage(imageObjectId: string) {

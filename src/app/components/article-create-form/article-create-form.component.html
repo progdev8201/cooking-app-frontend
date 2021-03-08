@@ -11,7 +11,8 @@
         <mat-label>Article name</mat-label>
         <input matInput placeholder="Ex. apple" formControlName="name" autocomplete="off">
         <mat-hint>name</mat-hint>
-        <mat-error>name cannot be blank</mat-error>
+        <mat-error *ngIf="getF().name.hasError('required')">name cannot be blank</mat-error>
+        <mat-error *ngIf="getF().name.hasError('uniqueNameError')">name must be unique</mat-error>
       </mat-form-field>
     </p>
 

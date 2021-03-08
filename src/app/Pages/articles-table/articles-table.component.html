@@ -46,7 +46,7 @@
           <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
             <td mat-cell *matCellDef="let row">
-              <button mat-icon-button (click)="deleteArticle(row.id)" aria-label="Example icon button with a home icon">
+              <button mat-icon-button (click)="openFindAllOccurencesDialog(row)" aria-label="Example icon button with a home icon">
                 <mat-icon>delete</mat-icon>
               </button>
             </td>
