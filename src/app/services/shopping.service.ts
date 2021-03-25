@@ -11,8 +11,12 @@ export class ShoppingService {
 
   constructor(private http:HttpClient) { }
 
-  updateShoppingList(shoppingListArticles:RoutineArticleDTO[]):Observable<RoutineArticleDTO[]>{
-    return this.http.put<RoutineArticleDTO[]>(`${environment.shoppingUrl}/${localStorage.getItem('userId')}`,shoppingListArticles);
+  addArticlesToShoppingList(shoppingListArticles:RoutineArticleDTO[]):Observable<RoutineArticleDTO[]>{
+    return this.http.put<RoutineArticleDTO[]>(`${environment.shoppingUrl}/add/${localStorage.getItem('userId')}`,shoppingListArticles);
+  }
+
+  deleteArticlesToShoppingList(shoppingListArticles:RoutineArticleDTO[]):Observable<RoutineArticleDTO[]>{
+    return this.http.put<RoutineArticleDTO[]>(`${environment.shoppingUrl}/delete/${localStorage.getItem('userId')}`,shoppingListArticles);
   }
 
   findAll():Observable<RoutineArticleDTO[]>{

@@ -48,17 +48,11 @@ export class RoutineArticleAddComponent implements OnInit {
 
   //map articles to only have articles that are not in my routine
   filterArticles(articles: ArticleDTO[]): ArticleDTO[] {
-    const newArticles: ArticleDTO[] = articles.filter(article => {
-      return !this.isInRoutine(article);
-    })
-
-    return newArticles;
+    return articles.filter(article => !this.isInRoutine(article));
   }
 
   isInRoutine(articleDTO: ArticleDTO): boolean {
-    return this.data.routineArticles.some(article => {
-      return article.article.id === articleDTO.id
-    })
+    return this.data.routineArticles.some(article => article.article.id === articleDTO.id);
   }
 
 
@@ -69,7 +63,7 @@ export class RoutineArticleAddComponent implements OnInit {
     if (articlesToMap.length > 0) {
 
       //map them into routine article + attribute them their quantity
-      articlesToMap.forEach((article) => {
+      articlesToMap.forEach(article => {
         const routineArticle: RoutineArticleDTO = {
           id:null,
           article,

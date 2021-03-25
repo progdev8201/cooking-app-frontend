@@ -58,11 +58,9 @@ export class ArticleCarouselComponent implements OnInit {
 
     this.fridgeService.updateFridge(this.fridge).subscribe(()=>{
 
-      //get shopping list then add object to it then update then refresh fridge
-      this.shoppingService.findAll().subscribe(shoppingList => {
-        shoppingList.push(routineArticleToShop);
-        this.shoppingService.updateShoppingList(shoppingList).subscribe(() => this.refreshFridge.emit());
-      });
+      const routineArticles = [routineArticleToShop];
+      
+      this.shoppingService.addArticlesToShoppingList(routineArticles).subscribe(() => this.refreshFridge.emit());
     });
   }
 

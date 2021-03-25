@@ -86,21 +86,8 @@ export class RoutineArticlesTableComponent implements OnInit {
   //SERVICES
 
   addToShop(){
-    if (this.selection.selected.length > 0) {
-      
-      //find all selected routine articles then get current shopping list then add selected articles to it then update shoppingList list then redirect client
-      const selectedRoutineArticles = this.selection.selected;
-
-      this.shoppingService.findAll().subscribe(data =>{
-        selectedRoutineArticles.forEach((routineArticle) =>{
-          data.push(routineArticle);
-        })
-        
-        this.shoppingService.updateShoppingList(data).subscribe(() => this.openSnackBar("Added to Shop With Success","Go to Shopping"));
-
-      });
-
-    }
+    if (this.selection.selected.length > 0) 
+      this.shoppingService.addArticlesToShoppingList(this.selection.selected).subscribe(() => this.openSnackBar("Added to Shop With Success","Go to Shopping"));
   }
 
   getImage(image:string):string{
