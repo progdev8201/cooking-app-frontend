@@ -1,3 +1,4 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,9 +16,10 @@ import { environment } from 'src/environments/environment';
 })
 export class ShoppingPageComponent implements OnInit {
 
-  displayedColumns: string[] = ['image','name', 'qty', 'price', 'delete'];
+  displayedColumns: string[] = ['select','image','name', 'qty', 'price', 'delete'];
   shoppingList:RoutineArticleDTO[] = [];
   dataSource = new MatTableDataSource<RoutineArticleDTO>([]);
+  selection = new SelectionModel<RoutineArticleDTO>(true, []);
   durationInSeconds = 5;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -61,10 +63,13 @@ export class ShoppingPageComponent implements OnInit {
   }
 
   onShop(){
-    this.shoppingService.shop().subscribe(() => {
-      this.initShoppingList();
-      this.openSnackBar('Shopping Success','Go to Home Page');
-    });
+    if (this.selection.selected.length > 0) {
+      this.shoppingService.shop(this.selection.selected).subscribe(() => {
+        this.selection.clear();
+        this.initShoppingList();
+        this.openSnackBar('Shopping Success','Go to Home Page');
+      });
+    }
   }
 
   //ALL ABOUT THE TABLE
@@ -83,4 +88,27 @@ export class ShoppingPageComponent implements OnInit {
     }
   }
 
+  // SELECT 
+
+   /** Whether the number of selected elements matches the total number of rows. */
+   isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: RoutineArticleDTO): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row `;
+  }
 }

@@ -23,7 +23,7 @@ export class ShoppingService {
     return this.http.get<RoutineArticleDTO[]>(`${environment.shoppingUrl}/${localStorage.getItem('userId')}`);
   }
 
-  shop(){
-    return this.http.get(`${environment.shoppingUrl}/shopAll/${localStorage.getItem('userId')}`);
+  shop(articlesToShop:RoutineArticleDTO[]){
+    return this.http.post(`${environment.shoppingUrl}/shopAll/${localStorage.getItem('userId')}`,articlesToShop);
   }
 }

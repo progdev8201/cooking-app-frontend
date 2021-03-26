@@ -16,11 +16,27 @@
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
 
+              <!-- Select column-->
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let row">
+                  <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+
               <!-- Image Column -->
               <ng-container matColumnDef="image">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
                 <td mat-cell *matCellDef="let row">
-                  <img [src]="getImage(row.article.image)" class="img-fluid rounded w-25" style="max-height: 40px;"  alt="article image">
+                  <img [src]="getImage(row.article.image)" class="img-fluid rounded w-25" style="max-height: 40px;"
+                    alt="article image">
                 </td>
               </ng-container>
 
@@ -52,7 +68,6 @@
                 </td>
               </ng-container>
 
-
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
@@ -68,7 +83,7 @@
         </div>
 
         <div class="container">
-          <button [disabled]="shoppingList.length == 0" class="btn-block bg-dark text-white" mat-raised-button
+          <button [disabled]="selection.selected.length == 0" class="btn-block bg-dark text-white" mat-raised-button
             (click)="onShop()">Shop Items
           </button>
         </div>

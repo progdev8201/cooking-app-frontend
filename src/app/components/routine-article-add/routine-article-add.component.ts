@@ -123,6 +123,4 @@ export class RoutineArticleAddComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row `;
   }
 
-
-
 }

@@ -89,11 +89,10 @@ export class ArticleCreateFormComponent implements OnInit {
   updateArticle(articleDTO: ArticleDTO) {
     this.articleService.update(articleDTO).subscribe((data) => this.uploadImage(data.id), error => this.handleNameError(error));
   }
-  
-  handleNameError(error: any){
-    if (error.error.message == this.UNIQUE_NAME_CONSTRAINT) {
-      this.getF().name.setErrors({uniqueNameError:true});
-    }
+
+  handleNameError(error: any) {
+    if (error.error.message == this.UNIQUE_NAME_CONSTRAINT)
+      this.getF().name.setErrors({ uniqueNameError: true });
   }
 
   uploadImage(imageObjectId: string) {
