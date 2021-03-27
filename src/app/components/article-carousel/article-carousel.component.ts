@@ -54,14 +54,10 @@ export class ArticleCarouselComponent implements OnInit {
     //remove from missing articles then update fridge
     let routineArticleToShop : RoutineArticleDTO = this.fridge.missingArticles.find(routineArticle => routineArticle.id == routineId);
     routineArticleToShop.quantity = 1;
+    
     this.fridge.missingArticles = this.fridge.missingArticles.filter(routineArticle => routineArticle.id != routineId);
 
-    this.fridgeService.updateFridge(this.fridge).subscribe(()=>{
-
-      const routineArticles = [routineArticleToShop];
-      
-      this.shoppingService.addArticlesToShoppingList(routineArticles).subscribe(() => this.refreshFridge.emit());
-    });
+    this.fridgeService.updateFridge(this.fridge).subscribe(() => this.shoppingService.addArticlesToShoppingList([routineArticleToShop]).subscribe(() => this.refreshFridge.emit()));
   }
 
   getImage(image:string):string{

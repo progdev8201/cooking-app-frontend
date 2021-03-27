@@ -51,7 +51,6 @@ export class HomePageComponent implements OnInit {
 
     let carouselArticles: CarouselArticle[] = [];
 
-
     //logic
     for (let i = 0; i < arrayCount; i++) {
       let carouselArticle: CarouselArticle = { articles: [] };
@@ -79,7 +78,6 @@ export class HomePageComponent implements OnInit {
     var mainArrayCounter = 0;
 
     let carouselRecipes: CarouselRecipe[] = [];
-
 
     //logic
     for (let i = 0; i < arrayCount; i++) {
