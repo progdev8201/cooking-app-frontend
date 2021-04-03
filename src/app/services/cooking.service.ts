@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RecipeToCookDTO } from '../models/recipe-to-cook-dto';
 import { RecipeDTO } from '../models/recipe-dto';
+import { AddRecipeToCookingListRequest } from '../models/add-recipe-to-cooking-list-request';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class CookingService {
     return this.http.get(`${environment.cookingUrl}/${localStorage.getItem}/${recipeToCookId}`)
   }
 
-  addRecipesToList(recipesToCook:RecipeDTO[],cookDate:Date){
-    return this.http.post(`${environment.cookingUrl}/${localStorage.getItem('userId')}/${cookDate}`,recipesToCook);
+  addRecipesToList(addRecipeToCookingListRequest: AddRecipeToCookingListRequest){
+    return this.http.post(`${environment.cookingUrl}/${localStorage.getItem('userId')}`,addRecipeToCookingListRequest);
   }
 
   updateCookDay(cookDate:Date,recipeToCookId:string){
@@ -29,6 +30,6 @@ export class CookingService {
   }
 
   deleteRecipes(recipesToDelete:string[]){
-    return this.http.post(`${environment.cookingUrl}/${localStorage.getItem('userId')}`,recipesToDelete);
+    return this.http.post(`${environment.cookingUrl}/delete/${localStorage.getItem('userId')}`,recipesToDelete);
   }
 }

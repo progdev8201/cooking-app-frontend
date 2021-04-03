@@ -89,7 +89,8 @@ export class RecipeFormComponent implements OnInit {
         description: formValue['description'],
         recipeType: formValue['recipeType'],
         boughtDate: this.data ? this.data.boughtDate : [],
-        instructions: this.getInstructionsArray()
+        instructions: this.getInstructionsArray(),
+        cookingTransactions:[]
       }
 
       if (this.data)

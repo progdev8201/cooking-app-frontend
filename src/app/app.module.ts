@@ -29,6 +29,7 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { jwtUrls } from 'src/environments/environment';
 import { AllArticleOccurencesDialogComponent } from './components/all-article-occurences-dialog/all-article-occurences-dialog.component';
+import { RecipeToCookDialogComponent } from './dialogs/recipe-to-cook-dialog/recipe-to-cook-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AllArticleOccurencesDialogComponent } from './components/all-article-oc
     ArticleCarouselComponent,
     RecipeCarouselComponent,
     NotFoundComponent,
-    AllArticleOccurencesDialogComponent
+    AllArticleOccurencesDialogComponent,
+    RecipeToCookDialogComponent
   ],
   imports: [
     BrowserModule,

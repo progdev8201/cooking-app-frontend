@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { RecipeFormComponent } from 'src/app/components/recipe-form/recipe-form.component';
-import { RecipeArticleDTO } from 'src/app/models/recipe-article-dto';
+import { RecipeToCookDialogComponent } from 'src/app/dialogs/recipe-to-cook-dialog/recipe-to-cook-dialog.component';
 import { RecipeDTO } from 'src/app/models/recipe-dto';
 import { RecipeService } from 'src/app/services/recipe.service';
 import { environment } from 'src/environments/environment';
@@ -16,7 +16,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./recipe-page.component.css']
 })
 export class RecipePageComponent implements OnInit {
-  displayedColumns: string[] = ['image', 'name', 'country', 'recipe type', 'details', 'delete'];
+  displayedColumns: string[] = ['image', 'name', 'country', 'recipe type','cook' ,'details', 'delete'];
   dataSource = new MatTableDataSource<RecipeDTO>([]);
   recipes: RecipeDTO[] = [];
   mobileQuery: MediaQueryList;
@@ -51,6 +51,14 @@ export class RecipePageComponent implements OnInit {
       if (result == 'refresh')
         this.initRecipes();
     });
+  }
+
+  openRecipeDtoFormDialog(recipe: RecipeDTO){
+    this.dialog.open(RecipeToCookDialogComponent,{
+      width: this.mobileQueryIphone6Plus.matches ? '100%' : '45%',
+      maxWidth: '100%',
+      data: recipe
+    })
   }
 
   //SERVICES
