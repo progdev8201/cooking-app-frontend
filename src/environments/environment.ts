@@ -13,7 +13,8 @@ export const environment = {
   shoppingUrl:`${link}/shop`,
   recipeUrl:`${link}/recipe`,
   fridgeUrl:`${link}/fridge`,
-  imageUrl:`${link}/image`
+  imageUrl:`${link}/image`,
+  cookingUrl: `${link}/cooking`
 };
 
 export const jwtUrls={

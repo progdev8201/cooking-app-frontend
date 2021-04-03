@@ -1,3 +1,4 @@
+import { CookingTransactionDTO } from './cooking-transaction-dto';
 import { RecipeArticleDTO } from './recipe-article-dto';
 import { RecipeType } from './recipe-type.enum';
 
@@ -11,5 +12,6 @@ export interface RecipeDTO {
     recipeType:RecipeType;
     instructions:string[];
     boughtDate:Date[];
+    cookingTransactions:CookingTransactionDTO[];
     panelOpenState?:boolean;
 }
