@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ArticlesTableComponent } from './Pages/articles-table/articles-table.component';
+import { CookingPageComponent } from './pages/cooking-page/cooking-page.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { RecipePageComponent } from './Pages/recipe-page/recipe-page.component';
 import { RoutinePageComponent } from './Pages/routine-page/routine-page.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'routine', canActivate: [AuthGuardService], component: RoutinePageComponent },
   { path: 'shopping', canActivate: [AuthGuardService], component: ShoppingPageComponent },
   { path: 'recipe', canActivate: [AuthGuardService], component: RecipePageComponent },
+  { path: 'cooking', canActivate: [AuthGuardService], component: CookingPageComponent },
   { path: 'not-found', canActivate: [AuthGuardService], component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

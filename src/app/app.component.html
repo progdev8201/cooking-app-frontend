@@ -78,15 +78,26 @@
             </div>
           </a>
 
-
           <mat-divider></mat-divider>
+          
+          <a mat-list-item routerLink="cooking" (click)="snav.toggle()">
+            <div class="d-flex">
+              <mat-icon class="mr-3">restaurant</mat-icon>
+              <p>cooking</p>
+            </div>
+          </a>
+          
+          <mat-divider></mat-divider>
+
           <a mat-list-item (click)="logout()" (click)="snav.toggle()">
             <div class="d-flex">
               <mat-icon class="mr-3">exit_to_app</mat-icon>
               <p>logout</p>
             </div>
           </a>
+
           <mat-divider></mat-divider>
+
         </ng-container>
       </mat-nav-list>
 

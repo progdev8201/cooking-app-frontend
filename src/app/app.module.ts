@@ -30,6 +30,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { jwtUrls } from 'src/environments/environment';
 import { AllArticleOccurencesDialogComponent } from './components/all-article-occurences-dialog/all-article-occurences-dialog.component';
 import { RecipeToCookDialogComponent } from './dialogs/recipe-to-cook-dialog/recipe-to-cook-dialog.component';
+import { CookingPageComponent } from './pages/cooking-page/cooking-page.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { RecipeToCookDialogComponent } from './dialogs/recipe-to-cook-dialog/rec
     RecipeCarouselComponent,
     NotFoundComponent,
     AllArticleOccurencesDialogComponent,
-    RecipeToCookDialogComponent
+    RecipeToCookDialogComponent,
+    CookingPageComponent
   ],
   imports: [
     BrowserModule,
