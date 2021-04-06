@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RecipeToCookDialogComponent } from 'src/app/dialogs/recipe-to-cook-dialog/recipe-to-cook-dialog.component';
 import { CarouselRecipe } from 'src/app/models/carousel-recipe';
 import { FridgeDTO } from 'src/app/models/fridge-dto';
 import { RecipeDTO } from 'src/app/models/recipe-dto';
@@ -20,20 +23,27 @@ export class RecipeCarouselComponent implements OnInit {
   @Input() type: string;
   @Output() refreshFridge = new EventEmitter();
   navId: string;
+  mobileQuery: MediaQueryList;
 
-  constructor(private fridgeService: FridgeService) { }
+  private _mobileQueryListener: () => void;
+
+  constructor(private fridgeService: FridgeService, public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
+    this.navId = '#' + this.carouselId;
   }
 
   //SERVICES
 
-  onButtonClicked(recipeId: string) {
+  onButtonClicked(recipe: RecipeDTO) {
     if (this.type == 'availableRecipes')
-      this.removeRecipe(recipeId);
+      this.removeRecipe(recipe.id);
     else
-      this.addToCookingList(recipeId);
-
+      this.openRecipeDtoFormDialog(recipe);
   }
 
   removeRecipe(recipeId: string) {
@@ -42,8 +52,13 @@ export class RecipeCarouselComponent implements OnInit {
     this.fridgeService.updateFridge(this.fridge).subscribe(() => this.refreshFridge.emit());
   }
 
-  addToCookingList(recipeId: string) {
-    //find recipe then add it to cooking list then update cooking list
+
+  openRecipeDtoFormDialog(recipe: RecipeDTO) {
+    this.dialog.open(RecipeToCookDialogComponent, {
+      width: this.mobileQuery.matches ? '100%' : '45%',
+      maxWidth: '100%',
+      data: recipe
+    })
   }
 
   getImage(image: string): string {

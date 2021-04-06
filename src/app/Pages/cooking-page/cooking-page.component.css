@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    border-color: purple !important;
   }
   
   tr.example-detail-row {
@@ -15,7 +16,7 @@ table {
   }
   
   .example-element-row td {
-    border-bottom-width: 0;
+    border-bottom-width: 1;
   }
   
   .example-element-detail {
@@ -23,25 +24,6 @@ table {
     display: flex;
   }
   
-  .example-element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
-  
-  .example-element-symbol {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
-  }
-  
-  .example-element-description {
-    padding: 16px;
-  }
-  
-  .example-element-description-attribution {
-    opacity: 0.5;
+  td, th {
+    width: 15%;
   }

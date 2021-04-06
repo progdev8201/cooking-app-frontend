@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RecipeToCookDTO } from '../models/recipe-to-cook-dto';
-import { RecipeDTO } from '../models/recipe-dto';
 import { AddRecipeToCookingListRequest } from '../models/add-recipe-to-cooking-list-request';
 
 @Injectable({
@@ -14,11 +13,11 @@ export class CookingService {
   constructor(private http:HttpClient) { }
 
   findAll():Observable<RecipeToCookDTO[]>{
-    return this.http.get<RecipeToCookDTO[]>(`${environment.cookingUrl}/${localStorage.getItem}`)
+    return this.http.get<RecipeToCookDTO[]>(`${environment.cookingUrl}/${localStorage.getItem('userId')}`)
   }
 
   cookRecipe(recipeToCookId:string){
-    return this.http.get(`${environment.cookingUrl}/${localStorage.getItem}/${recipeToCookId}`)
+    return this.http.get(`${environment.cookingUrl}/${localStorage.getItem('userId')}/${recipeToCookId}`)
   }
 
   addRecipesToList(addRecipeToCookingListRequest: AddRecipeToCookingListRequest){

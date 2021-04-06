@@ -26,7 +26,7 @@ export class ArticleCarouselComponent implements OnInit {
   constructor(private fridgeService:FridgeService,private shoppingService:ShoppingService) { }
   
   ngOnInit(): void {
-    this.navId = '#'+this.carouselId;
+    this.navId = '#' + this.carouselId;
   }
 
   //SERVICES

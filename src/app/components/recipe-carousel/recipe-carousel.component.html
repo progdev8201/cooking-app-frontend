@@ -6,7 +6,7 @@
             <li *ngFor="let amount of recipes let i = index" [data-target]="navId"
                 [data-slide-to]="i" [ngClass]="{'active' : i == 0,'': i != 0}"></li>
         </ol>
-        <div class="carousel-inner rounded bg-white">
+        <div class="carousel-inner rounded bg-white w-100">
             <ng-container *ngFor="let carouselRecipe of recipes; let i = index">
                 <div  [ngClass]="getClass(i)" style="min-height: 570px;">
                     <div class="container m-0 p-0">
@@ -19,7 +19,7 @@
                                     <p class="font-weight-bold">{{recipe.name}}</p>
                                     <p>{{recipe.boughtDate}}</p>
                                     <button mat-raised-button
-                                        class="w-75 bg-success text-white" (click)="onButtonClicked(recipe.id)">{{buttonMessage}}</button>
+                                        class="w-75 bg-success text-white" (click)="onButtonClicked(recipe)">{{buttonMessage}}</button>
                                 </div>
                             </div>
 
