@@ -14,7 +14,8 @@ export const environment = {
   recipeUrl:`${link}/recipe`,
   fridgeUrl:`${link}/fridge`,
   imageUrl:`${link}/image`,
-  cookingUrl: `${link}/cooking`
+  cookingUrl: `${link}/cooking`,
+  statisticUrl: `${link}/statistic`
 };
 
 export const jwtUrls={
