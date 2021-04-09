@@ -31,6 +31,9 @@ import { jwtUrls } from 'src/environments/environment';
 import { AllArticleOccurencesDialogComponent } from './components/all-article-occurences-dialog/all-article-occurences-dialog.component';
 import { RecipeToCookDialogComponent } from './dialogs/recipe-to-cook-dialog/recipe-to-cook-dialog.component';
 import { CookingPageComponent } from './pages/cooking-page/cooking-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +58,9 @@ import { CookingPageComponent } from './pages/cooking-page/cooking-page.componen
     NotFoundComponent,
     AllArticleOccurencesDialogComponent,
     RecipeToCookDialogComponent,
-    CookingPageComponent
+    CookingPageComponent,
+    DashboardPageComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { CookingPageComponent } from './pages/cooking-page/cooking-page.componen
     ReactiveFormsModule,
     DemoMaterialModule,
     HttpClientModule,
+    ChartsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
