@@ -5,39 +5,90 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-4">
+    <!-- GLOBAL DATA -->
+    <div class="row mt-4 mb-5">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
-                <p class="text-center m-5">Average money spent per month:</p>
-                <p class="text-center m-5"><strong>59.99$</strong></p>
+                <h1 class="text-center m-5">Average money spent per month:</h1>
+                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
-                <p class="text-center m-5">Average money spent per month:</p>
-                <p class="text-center m-5"><strong>59.99$</strong></p>
+                <h1 class="text-center m-5">Average money spent per month:</h1>
+                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
-                <p class="text-center m-5">Average money spent per month:</p>
-                <p class="text-center m-5"><strong>59.99$</strong></p>
+                <h1 class="text-center m-5">Average money spent per month:</h1>
+                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
             </div>
         </div>
-     
     </div>
 
+    <mat-divider></mat-divider>
+
+    <!-- GRAPHS -->
     <div class="row">
-        <div class="col-12">
-            <app-bar-chart></app-bar-chart>
-        </div>
-        <div class="col-12">
-            <app-bar-chart></app-bar-chart>
-        </div>
-        <div class="col-12">
-            <app-bar-chart></app-bar-chart>
+        <div class="container">
+
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+                    <h1 class="text-center border border-secondary rounded p-2">Money Spent Per Month</h1>
+                    <app-bar-chart *ngIf="moneySpentPerMonth.length > 0" [data]="moneySpentPerMonth" label="Money Spent"
+                        >
+                    </app-bar-chart>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+
+                    <h1 class="text-center border border-secondary rounded p-2">Times Cooked Per Month</h1>
+                    <app-bar-chart *ngIf="timesCookedPerMonth.length > 0" [data]="timesCookedPerMonth"
+                        label="Times Cooked">
+                    </app-bar-chart>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="row">
+                <div class="col-12 mt-5 mb-5">
+                    <h1 class="text-center border border-secondary rounded p-2">Time Recipe Is Cooked Per Month</h1>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-8">
+                                <p class="w-100">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Recipe</mat-label>
+                                        <mat-select>
+                                            <mat-option>creme</mat-option>
+                                            <mat-option>attieke</mat-option>
+                                        </mat-select>
+                                        <mat-hint>type</mat-hint>
+                                        <mat-error>you must choose a type</mat-error>
+                                    </mat-form-field>
+                                </p>
+                            </div>
+
+                            <div class="col-4">
+                                <button mat-raised-button class="w-100 mt-2 bg-dark text-white">Fetch</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <app-bar-chart [data]="timesRecipeIsCookedPerMonth" label="Times Cooked">
+                    </app-bar-chart>
+                </div>
+            </div>
+
         </div>
     </div>
-    
-   
+
+
 </div>

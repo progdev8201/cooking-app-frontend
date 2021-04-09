@@ -18,7 +18,7 @@ export class StatisticService {
     return this.http.get<MoneySpentPerMonthResponse[]>(`${environment.statisticUrl}/moneySpentPerMonth/${localStorage.getItem('userId')}/${year}`);
   }
   
-  findAmountOfTimeARecipeIsCookedPerMonth(recipeId: number, year: number): Observable<RecipeCookTimePerMonthResponse[]>{
+  findAmountOfTimeARecipeIsCookedPerMonth(recipeId: string, year: number): Observable<RecipeCookTimePerMonthResponse[]>{
     return this.http.get<RecipeCookTimePerMonthResponse[]>(`${environment.statisticUrl}/timeRecipeCookedPerMonth/${localStorage.getItem('userId')}/${recipeId}/${year}`);
   }
   
@@ -26,7 +26,7 @@ export class StatisticService {
     return this.http.get<CookingAmountPerMonthResponse[]>(`${environment.statisticUrl}/timeUserCookPerMonth/${localStorage.getItem('userId')}/${year}`);
   }
   
-  findAllStatistics(recipeId: number, year: number):Observable<AllStatisticsResponse>{
-    return this.http.get<AllStatisticsResponse>(`${environment.statisticUrl}/allStats/${localStorage.getItem('userId')}/${recipeId}/${year}`);
+  findAllStatistics(recipeId: string, year: number):Observable<AllStatisticsResponse>{
+    return this.http.get<AllStatisticsResponse>(`${environment.statisticUrl}/allStats/${localStorage.getItem('userId')}/${year}`);
   }
 }
