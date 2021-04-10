@@ -18,6 +18,10 @@ export class RecipeService {
     return this.http.get<RecipeDTO>(`${environment.recipeUrl}/${localStorage.getItem('userId')}/${recipeId}`);
   }
 
+  findAllStrings():Observable<RecipeDTO[]>{
+    return this.http.get<RecipeDTO[]>(`${environment.recipeUrl}/findAllStrings/${localStorage.getItem('userId')}`);
+  }
+
   findAll():Observable<RecipeDTO[]>{
     return this.http.get<RecipeDTO[]>(`${environment.recipeUrl}/${localStorage.getItem('userId')}`);
   }
