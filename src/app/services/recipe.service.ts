@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { RecipeDTO } from '../models/recipe-dto';
+import { RecipeStringResponse } from '../models/recipe-string-response';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class RecipeService {
     return this.http.get<RecipeDTO>(`${environment.recipeUrl}/${localStorage.getItem('userId')}/${recipeId}`);
   }
 
-  findAllStrings():Observable<RecipeDTO[]>{
-    return this.http.get<RecipeDTO[]>(`${environment.recipeUrl}/findAllStrings/${localStorage.getItem('userId')}`);
+  findAllStrings():Observable<RecipeStringResponse[]>{
+    return this.http.get<RecipeStringResponse[]>(`${environment.recipeUrl}/findAllStrings/${localStorage.getItem('userId')}`);
   }
 
   findAll():Observable<RecipeDTO[]>{

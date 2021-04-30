@@ -7,6 +7,7 @@ import { CookingService } from 'src/app/services/cooking.service';
 import { RecipeToCookDTO } from 'src/app/models/recipe-to-cook-dto';
 import { environment } from 'src/environments/environment';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cooking-page',
@@ -26,23 +27,37 @@ export class CookingPageComponent implements OnInit {
   expandedElement: RecipeToCookDTO | null;
   recipesToCook: RecipeToCookDTO[];
   mobileQuery: MediaQueryList;
+  durationInSeconds:number = 5;
 
   private _mobileQueryListener: () => void;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private cookingService: CookingService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(private _snackBar:MatSnackBar,private cookingService: CookingService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: this.durationInSeconds * 1000,
+    });
   }
 
   ngOnInit(): void {
 
   }
 
+  ngAfterViewInit() {
+    this.initRecipeToCookList();
+  }
+
   onCookRecipeToCook(id: string) {
-    this.cookingService.cookRecipe(id).subscribe(() => this.initRecipeToCookList());
+    this.cookingService.cookRecipe(id).subscribe(() => {
+      this.initRecipeToCookList();
+      this.openSnackBar('Recipe cooked with success','Fermer');
+    });
   }
 
   onDeleteRecipeToCook(id: string) {
@@ -52,7 +67,6 @@ export class CookingPageComponent implements OnInit {
   initRecipeToCookList() {
     this.cookingService.findAll().subscribe(data => {
       this.recipesToCook = data;
-      console.log(data);
 
       this.initTable();
     })
@@ -63,10 +77,6 @@ export class CookingPageComponent implements OnInit {
   }
 
   // ALL ABOUT THE TABLE
-
-  ngAfterViewInit() {
-    this.initRecipeToCookList();
-  }
 
   initTable() {
     this.dataSource = new MatTableDataSource(this.recipesToCook);

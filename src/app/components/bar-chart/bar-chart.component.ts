@@ -30,6 +30,10 @@ export class BarChartComponent implements OnInit {
     this.initData();
   }
 
+  ngOnChanges(){
+    this.initData();
+  }
+
   initData() {
     this.barChartData[0].data = this.data;
     this.barChartData[0].label = this.label;

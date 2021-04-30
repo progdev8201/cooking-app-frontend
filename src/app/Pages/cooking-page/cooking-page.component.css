@@ -1,6 +1,5 @@
 table {
     width: 100%;
-    border-color: purple !important;
   }
   
   tr.example-detail-row {
@@ -12,7 +11,7 @@ table {
   }
   
   tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
+    /* background: #efefef; */
   }
   
   .example-element-row td {
@@ -27,3 +26,6 @@ table {
   td, th {
     width: 15%;
   }
+  :focus {
+    outline:none;
+ }

@@ -9,20 +9,20 @@
     <div class="row mt-4 mb-5">
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
-                <h1 class="text-center m-5">Average money spent per month:</h1>
-                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
+                <h1 class="text-center m-5">Money spent this year:</h1>
+                <h4 *ngIf="moneySpentThisYear" class="text-center m-5"><strong>{{moneySpentThisYear.toFixed(2)}}$</strong></h4>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
                 <h1 class="text-center m-5">Average money spent per month:</h1>
-                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
+                <h4 *ngIf="averageMoneySpentPerMonth" class="text-center m-5"><strong>{{averageMoneySpentPerMonth.toFixed(2)}}$</strong></h4>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="m-1 mat-elevation-z4 rounded p-3 databox">
-                <h1 class="text-center m-5">Average money spent per month:</h1>
-                <h4 class="text-center m-5"><strong>59.99$</strong></h4>
+                <h1 class="text-center m-5">Average time cook per month:</h1>
+                <h4 *ngIf="averageTimeCookPerMonth" class="text-center m-5"><strong>{{averageTimeCookPerMonth.toFixed(2)}}</strong></h4>
             </div>
         </div>
     </div>
@@ -36,8 +36,8 @@
             <div class="row mt-5 mb-5">
                 <div class="col-12">
                     <h1 class="text-center border border-secondary rounded p-2">Money Spent Per Month</h1>
-                    <app-bar-chart *ngIf="moneySpentPerMonth.length > 0" [data]="moneySpentPerMonth" label="Money Spent"
-                        >
+                    <app-bar-chart *ngIf="moneySpentPerMonth.length > 0" [data]="moneySpentPerMonth"
+                        label="Money Spent">
                     </app-bar-chart>
                 </div>
             </div>
@@ -66,9 +66,8 @@
                                 <p class="w-100">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Recipe</mat-label>
-                                        <mat-select>
-                                            <mat-option>creme</mat-option>
-                                            <mat-option>attieke</mat-option>
+                                        <mat-select [(ngModel)]="recipeId">
+                                            <mat-option *ngFor="let option of recipeStringResponses" [value]="option.recipeId">{{option.recipeName}}</mat-option>
                                         </mat-select>
                                         <mat-hint>type</mat-hint>
                                         <mat-error>you must choose a type</mat-error>
@@ -77,7 +76,7 @@
                             </div>
 
                             <div class="col-4">
-                                <button mat-raised-button class="w-100 mt-2 bg-dark text-white">Fetch</button>
+                                <button mat-raised-button class="w-100 mt-2 bg-dark text-white" (click)="onFetchRecipeStats()">Fetch</button>
                             </div>
                         </div>
                     </div>
