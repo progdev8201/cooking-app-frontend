@@ -1,27 +1,68 @@
-# WhatAreWeCookingApp
+# cooking-app-frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+Application created to manage cooking at home and doing grocery shopping
 
-## Development server
+# Backend Technologies:
+  Spring boot,
+  Spring security,
+  Mongo db,
+  Flapdoodle,
+  aws ec2,
+  docker,
+  lombok
+ 
+# Frontend Technologies:
+  Angular,
+  Ng2-charts,
+  Chart-Js,
+  Angular Material,
+  Bootstrap,
+  oauth-jwt
+  
+  
+# Services:
+  - article service:
+    allow user to list articles,
+    allow user to create articles,
+    allow user to update articles,
+    allow user to delete articles
+    
+  - routine service:
+    allow user to create routine,
+    allow user to add articles to routine,
+    allow user to delete articles to routine,
+    allow user to delete routine,
+    allow user to take articles from routine then add to shopping
+  
+  - shopping service:
+    allow user to have a list of articles to shop,
+    allow user to shop article (virtual shop, will add a shopping transaction to the article for statistics purposes),
+    allow user to remove article from shopping list
+  
+  - recipe service:
+    allow user to list recipe,
+    allow user to create recipe,
+    allow user to edit recipe,
+    allow user to delete recipe
+    
+  - fridge service:
+    allow user to have a virtual fridge interface,
+    allow user to see available articles at home,
+    allow user to see cookable recipes based on available articles,
+    allow user to send available article to missing article and view them
+  
+  - cooking service:
+    allow user to chose a recipe and schedule a cooking date,
+    allow user to see recipe basic info and cooking instructions,
+    allow user to list recipes to cook
+    
+  - statistics service:
+    allow user to see a dashboard with charts js and ng2-charts,
+    allow user to see how much money he spent this year,
+    allow user to know how many times he cooked this year,
+    allow user to see the average time cook per month,
+    allow user to see his money spent per month,
+    allow user to see the amount of time a recipe is cooked
+    
+    
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
